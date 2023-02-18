@@ -1,0 +1,6 @@
+fazer um tratativa para itens que não foto... 
+verificar se é o nao bruxo (wizard) e apresentar avatar para trouxa,
+e verificar a possibilidade no painel general de colocar avatares personalizados.
+
+
+
