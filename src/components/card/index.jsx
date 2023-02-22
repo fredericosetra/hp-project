@@ -1,13 +1,27 @@
 import * as S from "./styles";
+import ModalCharacter from "./../modalCharacter";
 
 function Card({
   name,
   photo,
   stampHouse,
   backgroundColor,
+  tagButtonColorsHouse,
+  btnHovColorsHouse,
   species,
   gender,
   birth,
+  wood,
+  core,
+  house,
+  wizard,
+  ancestry,
+  eyeColour,
+  hairColour,
+  patronus,
+  hogwartsStudent,
+  hogwartsStaff,
+  actor,
 }) {
   return (
     <S.Container backgroundColor={backgroundColor}>
@@ -30,22 +44,39 @@ function Card({
         </S.AlignItens>
       </S.SubCard>
 
-      <S.CardEvolution>
-        <S.TitleEvolution tagBackground="grey">Evolution</S.TitleEvolution>
-        <S.AlignEvolution>
-          <S.EvolutionsImageCustom />
-          <S.EvolutionsName>Pichu</S.EvolutionsName>
-        </S.AlignEvolution>
-        <S.AlignEvolution>
-          <S.EvolutionsImageCustom />
-          <S.EvolutionsName>Pikachu</S.EvolutionsName>
-        </S.AlignEvolution>
-        <S.AlignEvolution>
-          <S.EvolutionsImageCustom />
-          <S.EvolutionsName>Raichu</S.EvolutionsName>
-        </S.AlignEvolution>
-      </S.CardEvolution>
-      <S.ButtonMoreInfo>more info</S.ButtonMoreInfo>
+      <S.CardInfo>
+        <S.TitleInfo tagButtonColorsHouse={tagButtonColorsHouse}>
+          Wand
+        </S.TitleInfo>
+        <S.AlignItens>
+          <S.SubTitle>Wood</S.SubTitle>
+          <S.DescriptionWand>{wood}</S.DescriptionWand>
+        </S.AlignItens>
+        <S.AlignItens>
+          <S.SubTitle>Core</S.SubTitle>
+          <S.DescriptionWand>{core}</S.DescriptionWand>
+        </S.AlignItens>
+      </S.CardInfo>
+      <ModalCharacter
+        tagButtonColorsHouse={tagButtonColorsHouse}
+        btnHovColorsHouse={btnHovColorsHouse}
+        name={name}
+        photo={photo}
+        species={species}
+        gender={gender}
+        birth={birth}
+        wood={wood}
+        core={core}
+        house={house}
+        wizard={wizard}
+        ancestry={ancestry}
+        eyeColour={eyeColour}
+        hairColour={hairColour}
+        patronus={patronus}
+        hogwartsStudent={hogwartsStudent}
+        hogwartsStaff={hogwartsStaff}
+        actor={actor}
+      />
     </S.Container>
   );
 }

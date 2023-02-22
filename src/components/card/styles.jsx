@@ -63,10 +63,18 @@ export const SubTitle = styled.div`
 
 export const Description = styled.div`
   font-size: 16px;
-  text-transform: capitalize;
+  text-align: center;
+  width: 75px;
 `;
 
-export const CardEvolution = styled.div`
+export const DescriptionWand = styled(Description)`
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CardInfo = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -75,32 +83,14 @@ export const CardEvolution = styled.div`
   padding: 24px 0;
 `;
 
-export const TitleEvolution = styled.div`
-  background-color: ${(props) => props.tagBackground};
+export const TitleInfo = styled.div`
+  background-color: ${(props) => props.tagButtonColorsHouse ?? "#616060"};
   border-radius: 8px;
   position: absolute;
   margin: -36px 0 0 0;
   text-transform: uppercase;
   padding: 5px 20px;
   color: white;
-`;
-
-export const AlignEvolution = styled(SubTitle)`
-  padding: 0 10px;
-  cursor: pointer;
-`;
-
-export const EvolutionsImageCustom = styled.div`
-  width: 50px;
-  height: 50px;
-  background-size: cover;
-  margin: 0 10px;
-`;
-
-export const EvolutionsName = styled.div`
-  font-size: 12px;
-  color: black;
-  font-weight: bold;
 `;
 
 export const ButtonMoreInfo = styled.div`

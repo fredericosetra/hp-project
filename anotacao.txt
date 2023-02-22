@@ -3,4 +3,6 @@ verificar se é o nao bruxo (wizard) e apresentar avatar para trouxa,
 e verificar a possibilidade no painel general de colocar avatares personalizados.
 
 
+melhorar fonte e aparencia do botão more info nos cards
 
+tela de loading
