@@ -6,3 +6,11 @@ e verificar a possibilidade no painel general de colocar avatares personalizados
 melhorar fonte e aparencia do botão more info nos cards
 
 tela de loading
+
+colocar a configuração para importação ".../" para "src/"
+
+
+remover todos logs
+
+
+adicionar talvez um comparador de personagem... estilo comparador de celular

@@ -3,22 +3,11 @@ import Modal from "@mui/material/Modal";
 
 import * as S from "./style";
 
-function ModalCharacter() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+function Loading({ open }) {
   return (
-    <div>
-      
-      <Modal open={open} onClose={handleClose}>
-        <S.BoxCustom>
-          <S.Container>
-            
-           </S.Container>
-        </S.BoxCustom>
-      </Modal>
-    </div>
+    <Modal open={open}>
+      <S.Container>carregando</S.Container>
+    </Modal>
   );
 }
-export default ModalCharacter;
+export default Loading;
