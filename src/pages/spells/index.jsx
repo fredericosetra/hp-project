@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import hpApi from "../../services/api";
+import Loading from "../../components/loading";
 import TextField from "@mui/material/TextField";
+import ItemNotFound from "../../components/itemNotFound";
 
 import * as S from "./styles";
 
@@ -10,18 +12,19 @@ function Spells() {
   const [autoCompleteSpells, setautoCompleteSpells] = useState("");
   const [searchFilter, setSearchFilter] = useState("");
   const [spellNotFound, setSpellNotFound] = useState(false);
-
-  //ao pesquisar e necessario limpar o campo primeiro
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     hpApi
       .get("/spells")
       .then(function (response) {
         setSpellsData(response.data);
         setSpells(response.data);
         const handleAutoComplete = response.data.map((spell) => spell.name);
-        handleAutoComplete.unshift("Todos Feitiços");
+        handleAutoComplete.unshift("All Spells");
         setautoCompleteSpells(handleAutoComplete);
+        setLoading(false);
       })
       .catch(function (error) {
         console.error(error);
@@ -29,7 +32,7 @@ function Spells() {
   }, []);
 
   function searchSpells(searchFilter) {
-    if (searchFilter === "Todos Feitiços") {
+    if (searchFilter === "All Spells") {
       setSpellNotFound(false);
       setSpells(spellsData);
     } else if (searchFilter.length === 0) {
@@ -47,6 +50,7 @@ function Spells() {
 
   return (
     <>
+      {loading && <Loading />}
       <S.ButtonAlign>
         <S.CustomAutocomplete
           disablePortal
@@ -54,7 +58,7 @@ function Spells() {
           options={autoCompleteSpells}
           sx={{ width: 300 }}
           renderInput={(params) => (
-            <TextField {...params} label="Pesquise o seu feitiço" />
+            <TextField {...params} label="research your spell" />
           )}
           onInputChange={(event, newInputValue) => {
             setSearchFilter(newInputValue);
@@ -70,7 +74,7 @@ function Spells() {
           variant="outlined"
           onClick={() => searchSpells(searchFilter)}
         >
-          Pesquisar
+          Search
         </S.CustomButton>
 
         <S.CustomButton
@@ -80,7 +84,7 @@ function Spells() {
             setSpells(spellsData);
           }}
         >
-          Limpar
+          Clear
         </S.CustomButton>
       </S.ButtonAlign>
 
@@ -101,12 +105,7 @@ function Spells() {
               })}
           </S.AlignSpells>
         ) : (
-          <S.SpellNotFound>
-            <S.SpellNotFoundImg />
-            <S.SpellNotFoundText>
-              Seu feitiço não foi encontrado
-            </S.SpellNotFoundText>
-          </S.SpellNotFound>
+          <ItemNotFound description="Spell not Found" />
         )}
       </S.Container>
     </>
